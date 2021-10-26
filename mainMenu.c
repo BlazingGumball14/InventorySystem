@@ -39,13 +39,29 @@ int main()
 			}
 			case 'x': case 'X':
 			{
-				printf("Success!x");	
+				printf("Success!x");
+				menuSelection =	'X';
 				break;
 			}
 			default:
 				printf("Invalid Input!\n\n");
 		}
-		
+		scanf("%c", &menuSelection);
 		
 	}while(menuSelection != 'X' && menuSelection != 'x');
 }
+
+/*
+
+if(menuSelection == 'a' || menuSelection == 'A')
+		{
+			
+			printf("\nSelected A\n\n");
+		}
+		else
+		{
+			printf("\nInvalid Input!\n\n");
+		}
+
+
+*/
