@@ -47,7 +47,7 @@ void load_menu(void)
             	choice != 'X'; //part of the failsafe while at the end
                 exit(0); //program should exit here
                 break;
-            default: printf("Invalid choice!\n\n"); //I still don't know how C handles char so this part is buggy
+            default: printf("Invalid choice!\n\n"); //I still don't know how C handles char so this part is a bit buggy
             	
             	/* Flushes input buffer from the newline from scanf() */
     			while ( (ch = getchar()) != '\n' && ch != EOF) ;
