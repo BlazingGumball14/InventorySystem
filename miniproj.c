@@ -13,13 +13,12 @@ int main(int argc, char** argv)
  
 void load_menu(void)
 {
-    char choice;
- 	int inv;
+    char choice, temp;
+ 	int ch;
  	
     do
     {
-    	system("cls"); //this is for clearing cmd screen //this causes some minor unexpected behaviours when input is invalid however
-    	inv = 0;
+    	system("cls"); //this is for clearing cmd screen //still has a minor minor bug when input is blank
         printf("MAIN MENU\n\nAdd Inventort Item\n");
         printf("[A] Add Inventory Item\n");
         printf("[B] Update Inventory Item\n");
@@ -48,18 +47,15 @@ void load_menu(void)
             	choice != 'X'; //part of the failsafe while at the end
                 exit(0); //program should exit here
                 break;
-            default: printf("Invalid choice!\n\n");
-            	inv = 1;
+            default: printf("Invalid choice!\n\n"); //I still don't know how C handles char so this part is buggy
+            	
+            	/* Flushes input buffer from the newline from scanf() */
+    			while ( (ch = getchar()) != '\n' && ch != EOF) ;
+    			
+   				printf("Press ENTER to continue.\n");
+    			while ( (ch = getchar()) != '\n' && ch != EOF)
                 break;
         }
- 
- 		//reproducing what Klars did to resolve same bug concept
- 		if(inv == 1 )
- 		{
- 			printf("Press Enter to continue\n");
- 			scanf("%c", &choice);
- 			
- 		}
  			
     } while (choice != 'X'); //the program should close on exit(0) on the exit case 'X/x'. this here is a failsafe
  
@@ -67,15 +63,29 @@ void load_menu(void)
  
 void addItem(void) //still haven't edited/done mine -Da
 {
-    int num1, num2;
     int ch;
-     
-    printf("Enter number 1: ");
-    scanf("%d",&num1);
-    printf("Enter number 2: ");
-    scanf("%d",&num2);
+    int id, quantity;
+    float price;
+    char itemdesc[80], expirydate[80], temp;
+    
+    /* Flushes input buffer from the newline from scanf() */
+    while ( (ch = getchar()) != '\n' && ch != EOF) ;
+    
+    printf("Enter Product ID Number: ");
+    scanf("%d", &id);
+    printf("Enter Product Name: ");
+    scanf("%c", &temp); //temp statement to clear buffer
+    scanf("%[^\n]%*c", itemdesc);
+    printf("Enter Quantity: ");
+    scanf("%d", &quantity);
+    printf("Enter Expiration Date: ");
+    scanf("%c", &temp); //temp statement to clear buffer
+    scanf("%[^\n]%*c", expirydate);
+    printf("Enter Product Price: ");
+    scanf("%f", &price);
+    
+    printf("\n\n%d %s %d %s %f", id, itemdesc, quantity, expirydate, price);
  
-    printf("\nThe sum of the numbers was: %d",num1+num2);
  
     /* Flushes input buffer from the newline from scanf() */
     while ( (ch = getchar()) != '\n' && ch != EOF) ;
@@ -105,4 +115,32 @@ void rest(void)
  
     return;
 }
+*/
+
+
+/*this is a recycle bin
+
+if(choice != 0)
+ 	scanf("%c", &temp);
+
+-------------------------------------
+
+/*choice = 'z';
+            	printf("Press Enter to continue\n");
+ 				scanf("%c", &temp);					//i'm trying to clear buffer here
+ 				scanf("%c", &choice);
+            	//inv = 1;/
+            	
+-----------------------------------------
+ 
+ 		/*reproducing what Klars did to resolve same bug concept
+ 		if(inv == 1 )
+ 		{
+ 			printf("Press Enter to continue\n");
+ 			scanf("%c", &temp);
+ 		}/
+ 		
+-------------------------
+
+    	//inv = 0;
 */
