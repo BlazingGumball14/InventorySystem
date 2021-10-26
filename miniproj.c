@@ -18,12 +18,15 @@ void load_menu(void)
  	
     do
     {
-    	system("cls"); //this is for clearing cmd screen
+    	system("cls"); //this is for clearing cmd screen //this causes some minor unexpected behaviours when input is invalid however
     	inv = 0;
         printf("MAIN MENU\n\nAdd Inventort Item\n");
-        printf("[A] Sum\n");
-        printf("[B] Rest\n");
-        printf("[X] Exit\n");
+        printf("[A] Add Inventory Item\n");
+        printf("[B] Update Inventory Item\n");
+        printf("[C] View Inventory Item\n");
+        printf("[D] Search Inventory Item\n");
+        printf("[E] Delete Inventory Item\n");
+        printf("[X] Exit Program\n");
         printf("\nPlease input choice: ");
         scanf("%c", &choice);
  
@@ -62,7 +65,7 @@ void load_menu(void)
  
 }
  
-void addItem(void)
+void addItem(void) //still haven't edited/done mine -Da
 {
     int num1, num2;
     int ch;
