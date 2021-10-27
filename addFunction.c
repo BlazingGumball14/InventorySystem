@@ -5,8 +5,6 @@
 
 void addItem(void) //still haven't edited/done mine -Da
 {
-	FILE* fp = fopen("inventorysample.csv", "a+");
-	
     //int ch;
     int id, quantity, ch, invcount;
     //unsigned char quantity, ch, invcount;
@@ -19,42 +17,21 @@ void addItem(void) //still haven't edited/done mine -Da
     while ( (ch = getchar()) != '\n' && ch != EOF) ;
     
     invcount = 0; 
-    
-	printf("Enter Product ID Number: ");
-	if(scanf("%d%c", &id, &temp) != 2 || temp != '\n')
-    	{ invcount = 1; goto invalid;}
-	else
-	{
-    	//scanf("%d", &id); 
-		if(id < 0 || id > 99999) { invcount = 1; goto invalid;}
-	}
-    
-	printf("Enter Product Name: ");
-    //scanf("%c", &temp); //temp statement to clear buffer
+    printf("Enter Product ID Number: ");
+    scanf("%d", &id); if(id < 0 || id > 99999) { invcount = 1; goto invalid;}
+    printf("Enter Product Name: ");
+    scanf("%c", &temp); //temp statement to clear buffer
     scanf("%[^\n]%*c", itemdesc);
-   
     printf("Enter Quantity: ");
-    if(scanf("%d%c", &quantity, &temp) != 2 || temp != '\n')
-    	{ invcount = 1; goto invalid;}
-	else
-	{
-    	//scanf("%d", &quantity);
-		if(quantity < 1) { invcount = 1; goto invalid; }
-	}
-    
-	printf("Enter Expiration Date: ");
-    //scanf("%c", &temp); //temp statement to clear buffer
+    scanf("%d", &quantity);  if(quantity < 1) { invcount = 1; goto invalid;}
+    printf("Enter Expiration Date: ");
+    scanf("%c", &temp); //temp statement to clear buffer
     scanf("%[^\n]%*c", expirydate);
-    
-	printf("Enter Product Price: ");
+    printf("Enter Product Price: ");
     scanf("%f", &price);
     
-    printf("\n\n%d, %s, %d, %s, %f", id, itemdesc, quantity, expirydate, price);
+    printf("\n\n%d %s %d %s %f", id, itemdesc, quantity, expirydate, price);
  	
- 	fprintf(fp, "%d,%s,%d,%s,%f\n", id, itemdesc, quantity, expirydate, price);
- 	printf("\n\nItem recorded!");
- 
- 	fclose(fp);
  	//printf("\n\n%u", id);	//tester line
 	invalid:
 		if(invcount == 1) { printf("\nInvalid Input!"); }
