@@ -15,7 +15,7 @@ int main(int argc, char** argv)
  
 void load_menu(void)
 {
-    char choice, temp;
+    char choice;
  	int ch;
  	
     do
