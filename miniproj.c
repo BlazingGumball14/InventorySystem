@@ -5,7 +5,6 @@
  
 void load_menu(void);
 void addItem(void);
-//void rest(void);
  
 int main(int argc, char** argv)
 {
@@ -36,7 +35,7 @@ void load_menu(void)
             case 'A': case 'a': addItem();
                 break;
             /* Edit your function
-			case 'B': case 'b': //rest(); //that rest function is from the original code, which I used as test function 2
+			case 'B': case 'b': 
                 break;
             case 'C': case 'c': 
             	break;
@@ -49,7 +48,7 @@ void load_menu(void)
             	choice != 'X'; //part of the failsafe while at the end
                 exit(0); //program should exit here
                 break;
-            default: printf("Invalid choice!\n\n"); //I still don't know how C handles char so this part is a bit buggy
+            default: printf("Invalid choice!\n\n"); 
             	
             	/* Flushes input buffer from the newline from scanf() */
     			while ( (ch = getchar()) != '\n' && ch != EOF) ;
@@ -62,53 +61,3 @@ void load_menu(void)
     } while (choice != 'X'); //the program should close on exit(0) on the exit case 'X/x'. this here is a failsafe
  
 }
- 
-      
- 
- /* this is from the original code I copied
- 	feel free to enable it to experiment a bit if you want
- 
-void rest(void)
-{
-    int ch;
-    printf("Sleepy sleepy... zZZzZzZz\n");
-    printf("You now feel awake again!\n");
- 
-    // Flushes input buffer 
-    while ((ch = getchar()) != '\n' && ch != EOF) ;
- 
-    printf("\n\nPress ENTER to continue.\n");
-    while ((ch = getchar()) != '\n' && ch != EOF)
-        ;
- 
-    return;
-}
-*/
-
-
-/*this is a recycle bin
-
-if(choice != 0)
- 	scanf("%c", &temp);
-
--------------------------------------
-
-/*choice = 'z';
-            	printf("Press Enter to continue\n");
- 				scanf("%c", &temp);					//i'm trying to clear buffer here
- 				scanf("%c", &choice);
-            	//inv = 1;/
-            	
------------------------------------------
- 
- 		/*reproducing what Klars did to resolve same bug concept
- 		if(inv == 1 )
- 		{
- 			printf("Press Enter to continue\n");
- 			scanf("%c", &temp);
- 		}/
- 		
--------------------------
-
-    	//inv = 0;
-*/
