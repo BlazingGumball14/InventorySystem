@@ -51,7 +51,7 @@ void addItem(void) //still haven't edited/done mine -Da
     
     printf("\n\n%d, %s, %d, %s, %f", id, itemdesc, quantity, expirydate, price);
  	
- 	fprintf(fp, "%d,%s,%d,%s,%f\n", id, itemdesc, quantity, expirydate, price);
+ 	fprintf(fp, "\"%d\",\"%s\",\"%d\",\"%s\",\"%f\"\n", id, itemdesc, quantity, expirydate, price);
  	printf("\n\nItem recorded!");
  
  	fclose(fp);
