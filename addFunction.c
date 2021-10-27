@@ -4,7 +4,8 @@
 void addItem(void) //still haven't edited/done mine -Da
 {
     int ch;
-    int id, quantity;
+    unsigned int id;
+    unsigned char quantity;
     float price;
     char itemdesc[80], expirydate[80], temp;
     
