@@ -7,12 +7,15 @@
 void DeleteItem() {
 	
 	int prodID;
-	int lineToDelete, lines, found;
+	int lineToDelete, lines, found, i, j, charNumbers;
 	lineToDelete = 1;
 	lines = 0;
 	found = 0;
 	char confirmation;
-	char lineReader[100];
+	char lineReader[1000];
+	char nameReader[25];
+	char nameReader2[25];
+	char nameReader3[25];
 	char likeThis[5];
 	char productID[5];
 	FILE * inventory, * tempFile;
@@ -30,18 +33,108 @@ void DeleteItem() {
 			fflush(stdin); // Reset the input buffer
 			
 			while(!feof(inventory)){
+				
+				
+				fgets(lineReader, 1000, inventory); // read each line in the inventory
 			
-				fgets(lineReader, 100, inventory); // read each line in the inventory
-			
-				strncpy(likeThis, lineReader,5); // Copy the 5 digit Product ID of the current line
+				if(lineToDelete == 1){
+					
+					strncpy(likeThis, lineReader+1,5); // Copy the 5 digit Product ID of the current line
+				
+				} else{
+					strncpy(likeThis, lineReader+1,5);
+				}
 				
 			
 				if(strcmp (productID, likeThis) == 0){  // This will check each line if the inputted product ID matches the current line's product ID
 					
 					found++;
-					printf("%s\n", lineReader);
 					
-					printf("Are you sure you want to delete this item? (Y/N)\n");
+					// DISPLAY THE ITEM's ATTRIBUTES
+					
+					for(i = 9; lineReader[i] != '\"' || i < 33; i++){
+						
+						nameReader[i-9] = lineReader[i];
+						
+					}
+					// Display attribute headers
+					printf("ID       ");
+					
+					if(strlen(nameReader) < 11){
+						printf("DESCRIPTION    ");
+					} else{
+						printf("DESCRIPTION");
+						for(j = 1; j <= strlen(nameReader) - 11; j++){
+							printf(" ");
+						}
+						printf("     ");
+					}
+					
+					
+					charNumbers = (int)(12 + strlen(nameReader));
+					
+					printf("QUANTITY    EXPIRY DATE    PRICE\n");
+					
+					// Display attribute values
+						// ID and Description
+						
+					printf("%.5s     %s    ", lineReader+1, nameReader);
+					
+						// Quantity
+						
+					for(i = charNumbers; lineReader[i] != '\"'; i++){
+						
+						printf("%c", lineReader[i]);
+						nameReader2[i-charNumbers] = lineReader[i];
+						
+					}
+					
+					if(strlen(nameReader2) < 8){
+						
+						for(j = 1; j <= 8 - strlen(nameReader2); j++){
+							printf(" ");
+						}
+						printf("     ");
+							
+					} else{
+						printf("     ");
+					}
+					
+					charNumbers += (int)(3 + strlen(nameReader2));
+					
+						// Expiry Date
+						
+					for(i = charNumbers; lineReader[i] != '\"'; i++){
+						
+						printf("%c", lineReader[i]);
+						nameReader3[i-charNumbers] = lineReader[i];
+						
+					}
+					
+					if(strlen(nameReader3) < 11){
+						
+						for(j = 1; j <= 8 - strlen(nameReader3); j++){
+							printf(" ");
+						}
+						printf("      ");
+							
+					} else{
+						printf("      ");
+					}
+					
+					charNumbers += (int)(3 + strlen(nameReader3));
+					
+						// Price
+					
+					for(i = charNumbers; lineReader[i] != '\"'; i++){
+						
+						printf("%c", lineReader[i]);
+						
+					}
+					
+					// END OF DISPLAY
+					
+					printf("\n\nAre you sure you want to delete this item? (Y/N)\n");
 					
 					do{
 					
@@ -51,7 +144,7 @@ void DeleteItem() {
 							
 								rewind(inventory);
 							
-								while(fgets(lineReader, 100, inventory) != NULL){
+								while(fgets(lineReader, 1000, inventory) != NULL){
 									
 									
 									lines++;
@@ -74,6 +167,8 @@ void DeleteItem() {
 							} else if (confirmation =='N' || confirmation == 'n'){
 							
 								printf("Item %s was not deleted", productID);
+								fclose(inventory);
+								fclose(tempFile);
 								break;
 								
 							} else{
