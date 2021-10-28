@@ -113,7 +113,7 @@ void DeleteItem() {
 					
 					if(strlen(nameReader3) < 11){
 						
-						for(j = 1; j <= 8 - strlen(nameReader3); j++){
+						for(j = 1; j <= 11 - strlen(nameReader3); j++){
 							printf(" ");
 						}
 						printf("      ");
