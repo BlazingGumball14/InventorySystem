@@ -9,7 +9,7 @@ void addItem(void)
 	
     int id, quantity, ch, invcount;
     float price;
-    char itemdesc[80], expirydate[80], temp;
+    char itemdesc[40], expirydate[11], temp;
     
     system("cls");
     
