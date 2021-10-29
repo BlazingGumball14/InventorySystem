@@ -8,7 +8,7 @@ void addItem(void)
 	
     int id, quantity, ch, invcount, idlength, i;
     float price;
-    char itemdesc[41], expirydate[11], temp, stringID[5], readcsv[80], idfromcsv[5];
+    char itemdesc[41] = "---", expirydate[11], temp, stringID[5], readcsv[80], idfromcsv[5];
     
     system("cls");
     
