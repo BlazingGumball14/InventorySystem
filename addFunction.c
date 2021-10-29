@@ -8,7 +8,7 @@ void addItem(void)
 	
     int id, quantity, ch, invcount, idlength, i;
     float price;
-    char itemdesc[40], expirydate[11], temp, stringID[5], readcsv[80], idfromcsv[5];
+    char itemdesc[41], expirydate[11], temp, stringID[5], readcsv[80], idfromcsv[5];
     
     system("cls");
     
@@ -44,26 +44,26 @@ void addItem(void)
 						stringID[i] = stringID[i-1];
 					
 					stringID[0] = '0';
-					idlength = strlen(stringID); //gets length of stringID	//tester line
+					//idlength = strlen(stringID); //gets length of stringID	//tester line
 					break;
 				case 3:
 					for(i = 4; i >= 2; i--)
 						stringID[i] = stringID[i-2];
 					
 					stringID[0] = '0'; stringID[1] = '0'; 
-					idlength = strlen(stringID); //gets length of stringID	//tester line
+					//idlength = strlen(stringID); //gets length of stringID	//tester line
 					break;
 				case 2:
 					for(i = 4; i >= 3; i--)
 						stringID[i] = stringID[i-3];
 					
 					stringID[0] = '0'; stringID[1] = '0'; stringID[2] = '0'; 
-					idlength = strlen(stringID); //gets length of stringID	//tester line
+					//idlength = strlen(stringID); //gets length of stringID	//tester line
 					break;
 				case 1:
 					stringID[4] = stringID[0];
 					stringID[0] = '0'; stringID[1] = '0'; stringID[2] = '0'; stringID[3] = '0'; 
-					idlength = strlen(stringID); //gets length of stringID	//tester line
+					//idlength = strlen(stringID); //gets length of stringID	//tester line
 					break;
 				default: { printf("\nUnexpected Error"); invcount = 1; goto invalid; }
 			}
@@ -80,11 +80,12 @@ void addItem(void)
 				//printf("%d", strcmp(idfromcsv, stringID)); //tester line
 			}
 		}
-		
 	}
     
 	printf("Enter Product Name: ");
     scanf("%[^\n]%*c", itemdesc);	//scanf for string with spaces
+    itemdesc[40] = '\0';
+    
    
     printf("Enter Quantity: ");
     if(scanf("%d%c", &quantity, &temp) != 2 || temp != '\n')
@@ -95,7 +96,9 @@ void addItem(void)
 	}
     
 	printf("Enter Expiration Date: ");
-    scanf("%[^\n]%*c", expirydate);
+	scanf("%s", &expirydate);
+    //scanf("%[^\n]%*c", expirydate);
+    expirydate[10] = '\0'; //cuts the string to make it less than 11
     
 	printf("Enter Product Price: ");
     if(scanf("%f%c", &price, &temp) != 2 || temp != '\n')
