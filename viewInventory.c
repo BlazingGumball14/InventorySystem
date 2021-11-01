@@ -75,7 +75,8 @@ void viewItem(void) //features made by caloy
 		
 		/* Flushes input buffer from the newline from scanf() */
 	    while ( (ch = getchar()) != '\n' && ch != EOF) ;
-	 
+		
+		 printf("\n\nPress ENTER to continue.\n");
 
 	    while ( (ch = getchar()) != '\n' && ch != EOF);
 		    
