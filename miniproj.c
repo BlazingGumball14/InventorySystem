@@ -31,7 +31,7 @@ void load_menu(void)
         printf("[X] Exit Program\n");
         printf("\nPlease input choice: ");
         scanf("%c", &choice);
- 
+ 		
         switch(choice)
         {
             case 'A': case 'a': addItem();
@@ -40,6 +40,7 @@ void load_menu(void)
 		//	case 'B': case 'b': //rest(); //that rest function is from the original code, which I used as test function 2
             //    break;
             case 'C': case 'c': viewItem(); 
+            
             	break;
            /*case 'D': case 'd': 
             	break;
