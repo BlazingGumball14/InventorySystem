@@ -145,7 +145,7 @@ void updateItem(void) {
 						}
 						}
     						for (i = 0; i < 15; ++i) {
-    	 					if (strlen(myArray) > 11) {
+    	 					if (strlen(myArray) > 10) {
         					printf("Invalid Input!");
 							system("miniproj.exe");
         }
