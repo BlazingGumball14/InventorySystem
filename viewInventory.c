@@ -9,7 +9,7 @@ void viewItem(void) //features made by caloy
 		printf("\t\t\t This is the Page 1 of the Inventory List\n");
 		printf("\t\t\t *****************************************\n");
 			
-	  FILE *the_file = fopen("Inventory_ST_NoBOM.csv", "r");
+	  FILE *the_file = fopen("Inventory.csv", "r");
 	  int  ch;
 		if (the_file == NULL){
 			perror("Unable to open the file.\n"); 
