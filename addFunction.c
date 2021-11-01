@@ -4,7 +4,7 @@
 
 void addItem(void)
 {
-	FILE* fp = fopen("inventorysample.csv", "a+");
+	FILE* fp = fopen("Inventory.csv", "a+");
 	
     int id, quantity, ch, invcount, idlength, i;
     float price;

@@ -2,6 +2,9 @@
 #include <stdlib.h>
 
 #include "addFunction.c"
+#include "updateItemfinal.c"
+#include "viewInventory.c"
+#include "DeleteFunction.c"
  
 void load_menu(void);
 void addItem(void);
@@ -34,16 +37,20 @@ void load_menu(void)
         {
             case 'A': case 'a': addItem();
                 break;
-            /* Edit your function
-			case 'B': case 'b': 
+            case 'B': case 'b': updateItem();
                 break;
-            case 'C': case 'c': 
+            case 'C': case 'c': viewItem();
             	break;
-            case 'D': case 'd': 
+            case 'D': case 'd':
+            	
+    			while ( (ch = getchar()) != '\n' && ch != EOF) ;
+    
+				printf("\n\nSearch Function currently unavailable.\nPress ENTER to continue.\n");
+    			while ( (ch = getchar()) != '\n' && ch != EOF)
             	break;
-            case 'E': case 'e': 
+            case 'E': case 'e': //DeleteItem();
             	break;
-            */
+            
             case 'X': case 'x': printf("Quitting program!\n");
             	choice != 'X'; //part of the failsafe while at the end
                 exit(0); //program should exit here
