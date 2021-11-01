@@ -25,9 +25,9 @@ void updateItem(void) {
 	
 	
 	FILE* filePointer;
-	filePointer = fopen("inventorysample.csv", "r");
+	filePointer = fopen("Inventory.csv", "r");
 	FILE * inventory, * tempFile;
-	inventory = fopen("inventorysample.csv", "r");
+	inventory = fopen("Inventory.csv", "r");
 	tempFile = fopen("temp.csv", "w");
 	
 	printf("Enter the product ID of the item you want to update: ");
@@ -202,8 +202,8 @@ void updateItem(void) {
 								
 								fclose(inventory);
 								fclose(tempFile);
-								remove("inventorysample.csv");
-								rename("temp.csv", "inventorysample.csv");
+								remove("Inventory.csv");
+								rename("temp.csv", "Inventory.csv");
 								printf("Item %s successfully updated!", productID);
 							
 								
