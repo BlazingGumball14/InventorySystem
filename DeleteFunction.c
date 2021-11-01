@@ -4,10 +4,10 @@
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
+
 void DeleteItem() {
-	
 	int prodID;
-	int lineToDelete, lines, found, i, j, charNumbers;
+	int lineToDelete, lines, found, i, j, charNumbers, ch;
 	lineToDelete = 1;
 	lines = 0;
 	found = 0;
@@ -16,8 +16,10 @@ void DeleteItem() {
 	char nameReader[25];
 	char nameReader2[25];
 	char nameReader3[25];
-	char likeThis[5];
-	char productID[5];
+	char likeThis[6];
+	likeThis[5] = '\0';
+	char productID[6];
+	likeThis[5] = '\0';
 	FILE * inventory, * tempFile;
 	inventory = fopen("Inventory.csv", "r");
 	tempFile = fopen("temp.csv", "w");
@@ -29,7 +31,6 @@ void DeleteItem() {
 		if(prodID <= 99999 && prodID >= 1){ // Check if input is 5 digits or less
 		
 			sprintf(productID, "%d", prodID); // cast the prodID into a string and give the value to productID		
-			
 			fflush(stdin); // Reset the input buffer
 			
 			while(!feof(inventory)){
@@ -44,7 +45,6 @@ void DeleteItem() {
 				} else{
 					strncpy(likeThis, lineReader+1,5);
 				}
-				
 			
 				if(strcmp (productID, likeThis) == 0){  // This will check each line if the inputted product ID matches the current line's product ID
 					
@@ -208,5 +208,11 @@ void DeleteItem() {
 		fclose(inventory);
 		fclose(tempFile);
 	}
-
+	
+/* Flushes input buffer from the newline from scanf() */
+    			while ( (ch = getchar()) != '\n' && ch != EOF) ;
+    			
+   				printf("\nPress ENTER to continue.\n");
+    			while ( (ch = getchar()) != '\n' && ch != EOF)
+                break;
 }
