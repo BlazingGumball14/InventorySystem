@@ -48,7 +48,7 @@ void load_menu(void)
 				printf("\n\nSearch Function currently unavailable.\nPress ENTER to continue.\n");
     			while ( (ch = getchar()) != '\n' && ch != EOF)
             	break;
-            case 'E': case 'e': //DeleteItem();
+            case 'E': case 'e': DeleteItem();
             	break;
             
             case 'X': case 'x': printf("Quitting program!\n");
