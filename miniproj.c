@@ -23,7 +23,7 @@ void load_menu(void)
     do
     {
     	system("cls"); //this is for clearing cmd screen //still has a minor minor bug when input is blank
-        printf("MAIN MENU\n\nAdd Inventort Item\n");
+        printf("MAIN MENU\n\nAdd Inventory Item\n");
         printf("[A] Add Inventory Item\n");
         printf("[B] Update Inventory Item\n");
         printf("[C] View Inventory Item\n");
