@@ -115,7 +115,7 @@ void updateItem(void) {
    							fflush(stdin);
    							repeat = 0;
 						while (myArray[j] != '\0')	{ 
-  						if((myArray[j] >= 58 && myArray[j] <= 126) ||  (myArray[j]=='.')||(myArray[j] >= 32 && myArray[j] <= 44)||(myArray[j]=='/')){
+  						if((myArray[j] >= 58 && myArray[j] <= 126) ||  (myArray[j]=='.')||(myArray[j] >= 32 && myArray[j] <= 45)||(myArray[j]=='/')){
   						printf("invalid");  
 						system("miniproj.exe");}
 						else{
